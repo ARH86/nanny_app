@@ -10,5 +10,5 @@ class Child < ApplicationRecord
 
   belongs_to :user
   
-  has_many :job_activities, through :job
+  has_many :jobs
 end
