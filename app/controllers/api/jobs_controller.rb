@@ -1,6 +1,10 @@
 class Api::JobsController < ApplicationController
+  before_auction :authenticate_user
 
-
+  def index 
+    @jobs = current_user.jobs
+    render 'index.json.jbuilder'
+  end
 
   def create
     @job = Job.new(
@@ -16,4 +20,9 @@ class Api::JobsController < ApplicationController
       render json: {errors: @job.errors.full_messages }, status: :bad_request 
     end
   end
+
+  def update 
+       
+  end
+
 end
