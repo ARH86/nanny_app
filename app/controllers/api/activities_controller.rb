@@ -1,27 +1,31 @@
 class Api::ActivitiesController < ApplicationController
 
   def index
-    @activities = current_user.job_activies
+    @activities = current_user.job_activities
     render 'index.json.jbuilder'
   end
 
   def create
-    @activity = @Activities.new(
-                                 activity_id: params[:activity_id],
-                                 name: params[:name],
-                                 start_time: params[:start_time],
-                                 duration: params[:duration]
-                                )
+    @activity = Activity.new(
+                             name: params[:name],
+                             start_time: params[:start_time],
+                             duration: params[:duration]
+                            )
   
-    if activities.save
+    if @activity.save
       render 'show.json.jbuilder'
     else
-      render json: {errors: @activities.erros.full_messages }, status: :bad_request
+      render json: {errors: @activity.errors.full_messages }, status: :bad_request
     end
   end
 
+  def show
+     @activity = Activity.find(params[:id])
+     render 'show.json.jbuilder'
+  end 
+
   def update
-    @activity = Activity.find(params[:activity_id])
+    @activity = Activity.find(params[:id])
 
     @activity.name = params[:name] || @activity.name
     @activity.start_time = params[:start_time] || @activity.start_time
@@ -37,7 +41,7 @@ class Api::ActivitiesController < ApplicationController
   end
 
   def destroy
-    @activity = Activity.find(params[:activity_id])
+    @activity = Activity.find(params[:id])
     @activity.destroy
 
     render json: {message: 'Your activity was deleted'}

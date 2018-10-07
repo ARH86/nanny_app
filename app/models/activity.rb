@@ -1,3 +1,3 @@
 class Activity < ApplicationRecord
-  belongs_to :job_activity
+  has_many :job_activities
 end
