@@ -1,1 +1,1 @@
-json.partial! @child, partial: 'child', as: :children
+json.partial! @child, partial: 'child', as: :child

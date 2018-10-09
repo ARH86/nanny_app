@@ -1,7 +1,7 @@
 class Api::ActivitiesController < ApplicationController
 
   def index
-    @activities = current_user.job_activities
+    @activities = current_user.activities
     render 'index.json.jbuilder'
   end
 

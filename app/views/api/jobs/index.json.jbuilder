@@ -1,0 +1,1 @@
+json.array! @jobs, partial: 'jobs', as: :jobs

@@ -12,7 +12,7 @@ class Api::ChildController < ApplicationController
                        gender: params[:gender],
                        user_id: params[:user_id]
                       )
-    if child.save
+    if @child.save
       render 'show.json.jbuilder'
     else 
       render json: {errors: @child.errors.full_messages }, status: :bad_request

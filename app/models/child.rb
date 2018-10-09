@@ -5,7 +5,7 @@ class Child < ApplicationRecord
   validates :user_id, presence: true
 
   validates :age, presence: true
-  validates :age, numerically: {greater_than: 0}
+  validates :age, numericality: {greater_than: 0}
   validates :gender, presence: true
 
   belongs_to :user
