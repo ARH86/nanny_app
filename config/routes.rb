@@ -8,11 +8,11 @@ Rails.application.routes.draw do
     delete "/activities/:id" => 'activities#destroy'
 
 
-    get "/child" => 'child#index'
-    get "/child/:id" => 'child#show'
-    post "/child" => 'child#create'
-    patch "/child/:id" => 'child#update'
-    delete "/child/:id" => 'child#destroy'
+    get "/children" => 'children#index'
+    get "/children/:id" => 'children#show'
+    post "/children" => 'children#create'
+    patch "/children/:id" => 'children#update'
+    delete "/children/:id" => 'children#destroy'
 
 
     get "/job_activities" => 'job_activities#index'

@@ -1,4 +1,4 @@
-class Api::ChildController < ApplicationController
+class Api::ChildrenController < ApplicationController
 
   def index
     @children = Children.all
