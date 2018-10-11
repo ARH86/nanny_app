@@ -1,7 +1,7 @@
 class Api::ChildrenController < ApplicationController
 
   def index
-    @children = Children.all
+    @children = Child.all
     render 'index.json.jbuilder'
   end
 

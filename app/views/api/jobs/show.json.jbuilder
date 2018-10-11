@@ -1,1 +1,1 @@
-json.partial! @jobs, partial: 'jobs', as: :jobs
+json.partial! @job, partial: 'job', as: :job

@@ -4,4 +4,5 @@ class User < ApplicationRecord
   
   has_many :children
   has_many :jobs
+  has_many :job_activities, through: :jobs 
 end

@@ -1,7 +1,8 @@
 class Api::JobsController < ApplicationController
-  before_auction :authenticate_user
+   before_action :authenticate_user
 
   def index 
+   # current_user = User.find(1) #delete out after testing
     @jobs = current_user.jobs
     render 'index.json.jbuilder'
   end
@@ -11,7 +12,7 @@ class Api::JobsController < ApplicationController
                    start_time: params[:start_time],
                    end_time: params[:end_time],
                    child_id: params[:child_id],
-                   user_id: current_user.id
+                   user_id: 1 #current_user.id
                   )
     if @job.save
       render 'show.json.jbuilder'

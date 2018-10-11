@@ -1,6 +1,7 @@
 class Api::JobActivitiesController < ApplicationController
 
   def index
+    #current_user = User.find(1) #delete out after testing
     @job_activities = current_user.job_activities
     render 'index.json.jbuilder'
   end
@@ -9,7 +10,8 @@ class Api::JobActivitiesController < ApplicationController
     @job_activity = JobActivity.new(  
                                         activity_id: params[:activity_id],
                                          start_time: params[:start_time],
-                                         duration: params[:duration]
+                                         duration: params[:duration],
+                                         job_id: params[:job_id]
                                          )
     if @job_activity.save
       render 'show.json.jbuilder'  

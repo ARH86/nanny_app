@@ -1,15 +1,15 @@
 class Api::ActivitiesController < ApplicationController
 
   def index
+    #current_user = User.find(1) #delete out after testing
     @activities = current_user.activities
     render 'index.json.jbuilder'
   end
 
   def create
     @activity = Activity.new(
-                             name: params[:name],
-                             start_time: params[:start_time],
-                             duration: params[:duration]
+                             name: params[:name]
+                            
                             )
   
     if @activity.save
@@ -28,8 +28,7 @@ class Api::ActivitiesController < ApplicationController
     @activity = Activity.find(params[:id])
 
     @activity.name = params[:name] || @activity.name
-    @activity.start_time = params[:start_time] || @activity.start_time
-    @activity.duration = params[:duration] || @activity.duration
+    
     @activity.save
 
     

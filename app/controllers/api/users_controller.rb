@@ -1,4 +1,10 @@
 class Api::UsersController < ApplicationController
+  
+  def index
+    @user = User.all
+    render 'index.json.jbuilder'
+  end
+
   def create
     user = User.new(
                     name: params[:name],
@@ -13,5 +19,10 @@ class Api::UsersController < ApplicationController
     else 
       render json: {message: user.errors.full_messages}, status: :bad_request
     end
+  end
+
+  def show
+    @user = User.find(params[:id])
+    render 'show.json.jbuilder'
   end
 end
