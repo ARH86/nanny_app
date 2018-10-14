@@ -41,7 +41,7 @@ class Api::JobActivitiesController < ApplicationController
   end
   
   def destroy
-    @job_activity = JobActivities.find(params[:id])
+    @job_activity = JobActivity.find(params[:id])
     @job_activity.destroy
 
     render json: {messages: 'Your job has been removed'}

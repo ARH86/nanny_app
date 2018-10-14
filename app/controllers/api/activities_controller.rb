@@ -2,7 +2,7 @@ class Api::ActivitiesController < ApplicationController
 
   def index
     #current_user = User.find(1) #delete out after testing
-    @activities = current_user.activities
+    @activities = Activity.all
     render 'index.json.jbuilder'
   end
 
