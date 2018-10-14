@@ -32,7 +32,7 @@ class Api::ActivitiesController < ApplicationController
     @activity.save
 
     
-    if activity.save
+    if @activity.save
       render 'show.json.jbuilder'
     else 
       render json: {errors: @activity.errors.full_messages }, status: :bad_request

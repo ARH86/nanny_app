@@ -1,7 +1,7 @@
 class Api::JobActivitiesController < ApplicationController
 
   def index
-    #current_user = User.find(1) #delete out after testing
+    current_user = User.find(1) #delete out after testing
     @job_activities = current_user.job_activities
     render 'index.json.jbuilder'
   end

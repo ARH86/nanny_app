@@ -29,12 +29,12 @@ class Api::JobsController < ApplicationController
   def update 
      @job = Job.find(params[:id])
 
-     @job.job_id = params[:id] || @job.job_id
+     @job.id = params[:id] || @job.id
      @job.start_time = params[:start_time] || @job.start_time
      @job.end_time = params[:end_time] || @job.end_time
      @job.child_id = params[:child_id] || @job.child_id
 
-     if job.save
+     if @job.save
       render 'show.json.jbuilder'
      else
       render json: {errors: @job.errors.full_messages }, status: :bad_request
