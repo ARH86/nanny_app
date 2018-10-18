@@ -1,4 +1,4 @@
-json.id activity.id
+json.activity_id activity.id
 json.name activity.name
 
 # json.activity do 
