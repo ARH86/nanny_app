@@ -8,11 +8,11 @@ class Api::JobActivitiesController < ApplicationController
 
   def create
     @job_activity = JobActivity.new(  
-                                        activity_id: params[:activity_id],
-                                         start_time: params[:start_time],
-                                         duration: params[:duration],
-                                         job_id: params[:job_id]
-                                         )
+                                    activity_id: params[:activity_id],
+                                     start_time: params[:start_time],
+                                     duration: params[:duration],
+                                     job_id: params[:job_id]
+                                     )
     if @job_activity.save
       render 'show.json.jbuilder'  
     else

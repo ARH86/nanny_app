@@ -10,7 +10,7 @@ class Api::ChildrenController < ApplicationController
                        name: params[:name],
                        age: params[:age],
                        gender: params[:gender],
-                       user_id: params[:user_id]
+                       user_id: current_user.id
                       )
     if @child.save
       render 'show.json.jbuilder'
