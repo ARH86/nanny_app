@@ -48,7 +48,7 @@ class Api::JobsController < ApplicationController
 
   def destroy
     @job = Job.find(params[:id])
-    @job.job_activity.each do |activity|
+    @job.job_activities.each do |activity|
       activity.destroy
     end
     @job.destroy

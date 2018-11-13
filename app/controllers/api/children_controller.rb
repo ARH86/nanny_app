@@ -35,13 +35,13 @@ class Api::ChildrenController < ApplicationController
     if child.save
       render 'show.json.jbuilder'
     else
-      render json: {erros: @child.erros.full_messages }, status: :bad_request
+      render json: {erros: @child.errors.full_messages }, status: :bad_request
     end
   end
 
   def destroy
-    @child = Child.find(params[:id])
-    @child.destroy
+    child = Child.find(params[:id])
+    child.destroy!
 
     render json: {messages: 'Your child has been removed'}
   end
